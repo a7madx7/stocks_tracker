@@ -21,4 +21,7 @@ class Stock < ApplicationRecord
 
     (opening_price = StockQuote::Stock.quote(ticker).open) ? "#{opening_price} (OPENING)" : 'Unavailable'
   end
+
+  has_many :user_stocks
+  has_many :users, through: :user_stocks
 end
